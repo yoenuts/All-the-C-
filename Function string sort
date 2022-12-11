@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<string.h>
+//create a function
+void sortMe(char *str){
+//you used pointer to pass the char array
+    int len = strlen(str);
+    char temp[len];
+//iterate and compare elements 
+//if val of the first element is greater than the second element, put 1st element in temp and replae 2nd elemment in the position of the first element
+    for(int ctr = 0; ctr < len - 1; ctr++){
+        for(int ctr1 = ctr + 1; ctr1 < len; ctr1++){
+            if(str[ctr] > str[ctr1]){
+                *temp = str[ctr];
+                str[ctr] = str[ctr1];
+                str[ctr1] = *temp;
+            }
+        }
+    }
+
+    printf("The sorted string is: %s", str);
+}
+
+void main(){
+    char str[100];
+
+    printf("Enter your name:");
+    scanf("%s", &str);
+
+    sortMe(str);
+
+}
