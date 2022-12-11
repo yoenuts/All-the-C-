@@ -1,0 +1,159 @@
+#include<stdio.h>
+int top, sums = 0, stack[10], add = 0, count = 0, ave = 0;
+//float count = 0;
+
+void push();
+void pop();
+void display();
+void sum();
+void average();
+void empty();
+
+
+int main(){
+    top = -1;
+    int ch;
+    
+    while(ch != 7){
+        puts("--Program Menu--");
+        printf("[1]Add a number(push)\n[2]Remove a number(pop)\n[3]Display all numbers\n[4]Display sum\n[5]Display Average\n[6]Empty Stack\n[7]Exit");
+        printf("\nEnter your choice: ");
+        scanf("%d", &ch);
+
+        switch(ch){
+        case 1:
+            push();
+            break;
+        case 2:
+            pop();
+            break;
+        case 3:
+            display();
+            break;
+        case 4:
+            sum();
+            break;
+        case 5:
+            average();
+            break;
+        case 6:
+            empty();
+            break;
+        }
+    }
+}
+    
+
+/**void empty(){
+    if( top == -1){
+        printf("Stack is empty");
+    }
+    else if( top > -1){
+
+    }
+
+}**/
+
+void average(){
+    sums = 0;
+    count = 0;
+    if(top == -1){
+        printf("Your stack is empty jeez");
+        printf("\n");
+    }
+    else{
+        for(int i = 0; i <= top; i++){
+            sums = sums + stack[i];
+            count++;
+        }
+        printf("%.2f", (float)sums/(float)top);
+        printf("\n");
+        //printf("%d", ave);
+    }
+}
+
+
+void sum(){
+    if(top == -1){
+        printf("Your stack is empty jeez");
+        printf("\n");
+    }
+    else{
+        for(int i = 0; i <= top; i++){
+            add += stack[i];
+        }
+        printf("%d", add);
+        printf("\n");
+    }
+}
+
+void empty(){
+    if(top = -1){
+        printf("Stack is already empty");
+        printf("\n");
+    }
+    else{
+        for(int i = 0; i < 10; i++){
+            pop();
+        }
+    }
+    top = -1;
+    
+}
+
+void push(){
+    int num;
+    if(top == 9){
+        printf("Woops stack full");
+        printf("\n");
+    }
+    else{
+        puts("Add Number");
+        printf("Enter a number: ");
+        scanf("%d", &num);
+        printf("You added %d", num);
+        top++;
+        stack[top] = num;
+        printf("\n");
+    }
+    printf("Your stack: ");
+    for(int i = 0; i <= top; i++){
+        printf("%d ", stack[i]);
+    }
+    printf("\n");
+}
+
+
+
+void pop(){
+    if(top == -1){
+        printf("Stack Empty");
+        printf("\n");
+    }
+    else{
+        puts("Remove a number");
+        printf("You removed %d", stack[top]);
+        top--;
+    }
+    printf("Your stack: ");
+    for(int i = top; i >= 0; --i){
+        printf("%d ", stack[i]);
+    }
+    printf("\n");
+
+}
+
+
+void display(){
+    if(top == -1){
+        printf("Whoops stack is empty");
+        printf("\n");
+    }
+    else{
+        printf("Your stack: ");
+        for(int i = 0; i <= top; i++){
+            printf("%d ", stack[i]);
+        }
+        printf("\n");
+    }
+}
