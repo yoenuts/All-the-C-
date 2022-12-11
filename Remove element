@@ -1,0 +1,29 @@
+#include<stdio.h>
+//create a function
+void removeMe(int array[], int delete, int size);
+
+void main(){
+    int delete, Array[20], size;
+
+    printf("Enter size of the array: ");
+    scanf("%d", &size);
+    printf("Input %d elements in ascending order", size);
+    printf("\n");
+    for(int ctr = 0; ctr < size; ctr++){
+        printf("Enter element %d: ", ctr + 1);
+        scanf("%d", &Array[ctr]);
+    }
+    printf("Input the position to delete: ");
+    scanf("%d", &delete);
+    removeMe(Array,delete,size);
+
+}
+
+void removeMe(int array[], int delete, int size){
+    printf("\nThe new list: ");
+    for(int ctr = 0; ctr < size; ctr++){
+        if( ctr != delete - 1){
+            printf("%d ", array[ctr]);
+        }
+    }
+}
