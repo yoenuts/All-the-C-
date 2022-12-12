@@ -1,0 +1,30 @@
+#include<stdio.h>
+
+//To print an X using for loops, you can use the following algorithm:
+
+void xMe(int n){
+    //Use two nested for loops to iterate over the rows and columns of the X.
+    //if the sum of the row and column indices is equal to the size of the X minus one (for the other diagonal)
+    for (int column = 0; column < n; column++){
+        for(int row = 0; row < n; row++){ 
+            //check if the row and column indices are equal
+            //
+            if(column == row || column + row == n - 1){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+
+void main(){
+    int n;
+    //Prompt the user to enter the size of the X.
+    printf("Enter an odd number: ");
+    scanf("%d", &n);
+
+    xMe(n);
+}
